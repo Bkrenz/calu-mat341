@@ -1,0 +1,247 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multicol}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=15mm, top=30mm, right=15mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\fancyhf{}
+\chead{MAT 341 - Linear Algebra}
+\lfoot{CALU Fall 2021}
+\rfoot{RDK}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Macros
+\newcommand{\definition}[1]{\underline{\textbf{#1}}}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Begin Document
+\begin{document}
+
+\section*{Section 1.1: Systems of Linear Equations}
+
+\begin{itemize}
+
+    \item A \definition{linear equation} in the variables $x_1,\ldots,x_n$ is an equation that can be written in the form $a_1 x_1 + \cdots + a_n x_n = b$
+where $b$ and coefficients $a_1,\ldots,a_n$ are usually known in advance.
+
+    \item A \definition{system of linear equations} is a collection of one or more linear equations using the same variables, $x_1, \ldots , x_n$.
+
+    \item A \definition{solution} of the system is a list $(s_1, s_2, \ldots, s_n)$ of numbers that makes each equation a true statement when the values
+    $s_1, \ldots, s_n$ are substituted for $x_1, \ldots, x_n$ respectively.
+
+    \item The set of all possible solutions is called the \definition{solution set} of the linear system.
+
+    \item Two linear systems are called \definition{equivalent} if they have the same solution set.
+
+    \item A system of linear equations has 
+        \begin{enumerate}
+            \item no solution, or
+            \item exactly one solution, or
+            \item infinitely many solutions
+        \end{enumerate}
+
+    \item A system of linear equations is said to be \definition{consistent} if it has either one solution or infinity many solutions.
+
+    \item A system of linear equations is said to be \definition{inconsistent} if it has no solution.
+
+    \item The essential information of a linear system can be recorded compactly in a rectangular array called a \definition{matrix}.
+    
+    \item The \definition{coefficient matrix} of a system of equations is a matrix with the coefficients of each variable, written as such: \\
+    \begin{center}
+        \begin{tabular}{c c c}
+
+            $\begin{rcases}
+            x_1 - 2x_2 + x_3 = 0 \\  
+            2x_2 - 8x_3 = 8 \\
+            -4x_1 + 5x_2 + 9x_3 = -9 \\ 
+            \end{rcases}$
+
+            & $\rightarrow$ &
+
+            $\begin{bmatrix}
+                1 & -2 & 1 \\
+                0 & 2 & -8 \\
+                -4 & 5 & 9 
+            \end{bmatrix}$
+
+        \end{tabular}
+    \end{center}
+
+    \item The \definition{augmented matrix} of a system of equations is the coefficient matrix with an additional column for the constants on the right side of the equation, written as such:\\
+    \begin{center}
+        \begin{tabular}{c c c}
+
+            $\begin{rcases}
+            x_1 - 2x_2 + x_3 = 0 \\  
+            2x_2 - 8x_3 = 8 \\
+            -4x_1 + 5x_2 + 9x_3 = -9 \\ 
+            \end{rcases}$
+
+            & $\rightarrow$ &
+
+            $\begin{bmatrix}
+                1 & -2 & 1 & 0 \\
+                0 & 2 & -8 & 8 \\
+                -4 & 5 & 9 & -9
+            \end{bmatrix}$
+
+        \end{tabular}
+    \end{center}
+
+    \item Elementary row operations include the following: 
+    \begin{enumerate}
+        \item \definition{Replacement} Replace one row by the sum of itself and a multiple of another row
+        \item \definition{Interchange} Interchange two rows
+        \item \definition{Scaling} Multiply all entires in a row by a nonzero constant
+    \end{enumerate}
+
+    \item Two matrices are called \definition{row equivalent} if there is a sequence of elementary row operations that transforms one matrix into the other.
+
+    \item It is important to note that row operations are reversible. If the augmented matrices of two linear systems are row equivalent, then the two systems have the same solution set.
+
+    \item Two fundamental questions about a linear system are as follows:
+    \begin{enumerate}
+        \item Is the system consistent; that is, does at least one solution \textit{exist}?
+        \item If a solution exists, is it the \textit{only} one; that is, is the solution \textit{unique}?
+    \end{enumerate}
+
+\end{itemize}
+
+\pagebreak
+
+\subsection*{Example 1}
+
+Solve the given system of equations:
+
+\vspace{2mm}
+
+$\begin{cases}
+x_1 - 2x_2 + x_3 = 0 \\  
+2x_2 - 8x_3 = 8 \\
+-4x_1 + 5x_2 + 9x_3 = -9 \\ 
+\end{cases}$
+
+\begin{enumerate}
+
+    \item Determine the augmented matrix of the initial system. 
+    \begin{center}
+        \begin{tabular}{c c c}
+
+            $\begin{rcases}
+            x_1 - 2x_2 + x_3 = 0 \hspace{4mm} (1) \\  
+            2x_2 - 8x_3 = 8 \hspace{4mm} (2) \\
+            -4x_1 + 5x_2 + 9x_3 = -9 \hspace{4mm} (3) \\ 
+            \end{rcases}$
+
+            & $\rightarrow$ &
+
+            $\begin{bmatrix}
+                1 & -2 & 1 & 0 \\
+                0 & 2 & -8 & 8 \\
+                -4 & 5 & 9 & -9
+            \end{bmatrix}$
+
+        \end{tabular}
+    \end{center}
+
+    \item Keep $x_1$ in the first equation and eliminate it from the other equations. To do so, add $4 \times (1)$ to $(3)$:\\
+    \begin{center}
+        \begin{tabular}{c c c c c c c}
+            $4x_1$ & $-$ & $8x_2$ & $+$ & $4x_3$ & $=$ & $0$ \\
+            $-4x_1$ & $+$ & $5x_2$ & $+$ & $9x_3$ & $=$ & $-9$ \\
+            \hline
+            & $-$ & $3x_2$ & $+$ & $13x_3$ & $=$ & $-9$ \\
+        \end{tabular}
+    \end{center}
+
+    \item The result of this calculation is written in place of the original third equation.
+    \begin{center}
+        \begin{tabular}{c c c}
+
+            $\begin{rcases}
+            x_1 - 2x_2 + x_3 = 0 \hspace{4mm} (1) \\  
+            2x_2 - 8x_3 = 8 \hspace{4mm} (2) \\
+            -3x_2 + 13x_3 = -9 \hspace{4mm} (3) \\ 
+            \end{rcases}$
+
+            & $\rightarrow$ &
+
+            $\begin{bmatrix}
+                1 & -2 & 1 & 0 \\
+                0 & 2 & -8 & 8 \\
+                0 & -3 & 13 & -9
+            \end{bmatrix}$
+
+        \end{tabular}
+    \end{center}
+
+    \item Now, multiply (2) by $1/2$ in order to obtain $1$ as the coefficient for $x_2$.
+    \begin{center}
+        \begin{tabular}{c c c}
+
+            $\begin{rcases}
+            x_1 - 2x_2 + x_3 = 0 \hspace{4mm} (1) \\  
+            x_2 - 4x_3 = 4 \hspace{4mm} (2) \\
+            -3x_2 + 13x_3 = -9 \hspace{4mm} (3) \\ 
+            \end{rcases}$
+
+            & $\rightarrow$ &
+
+            $\begin{bmatrix}
+                1 & -2 & 1 & 0 \\
+                0 & 1 & -4 & 4 \\
+                0 & -3 & 13 & -9
+            \end{bmatrix}$
+
+        \end{tabular}
+    \end{center}
+
+    \item Using the $x_2$ in (2), we can eliminate the $x_2$ in (3) by using $3 \times (2)$.
+    \begin{center}
+        \begin{tabular}{c c c c c}
+            $3x_2$ & $-$ & $12x_3$ & $=$ & $12$ \\
+            $-3x_2$ & $+$ & $13x_3$ & $=$ & $-9$ \\
+            \hline
+            & & $x_3$ & $=$ & $3$ \\
+        \end{tabular}
+    \end{center}
+
+    \item The new system takes a triangular form.
+    \begin{center}
+        \begin{tabular}{c c c}
+
+            $\begin{rcases}
+            x_1 - 2x_2 + x_3 = 0 \hspace{4mm} (1) \\  
+            x_2 - 4x_3 = 4 \hspace{4mm} (2) \\
+            -3x_2 + 13x_3 = -9 \hspace{4mm} (3) \\ 
+            \end{rcases}$
+
+            & $\rightarrow$ &
+
+            $\begin{bmatrix}
+                1 & -2 & 1 & 0 \\
+                0 & 1 & -4 & 4 \\
+                0 & 0 & 1 & 3
+            \end{bmatrix}$
+
+        \end{tabular}
+    \end{center}
+
+\end{enumerate}
+
+
+\end{document}
