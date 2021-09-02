@@ -5,6 +5,9 @@
 \usepackage{tabularx}
 \usepackage{multicol}
 
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+
 % Geometry 
 \usepackage{geometry}
 \geometry{letterpaper, left=15mm, top=20mm, right=15mm, bottom=20mm}
@@ -35,7 +38,48 @@
 
 \begin{itemize}
 
+\item A rectangular matrix is in \definition{row echelon form} if it has the following three properties:
+\begin{enumerate}
+  \item All nonzero rows are above any rows of all zeros.
+  \item Each leading entry of a row is in a column to the right of the leading entry of the row above it.
+  \item All entries in a column below a leading entry are zeros.
+\end{enumerate}
 
+\item If a matrix in echelon form satisfies the following additional conditions, then it is \definition{reduced row echelon form}:
+\begin{enumerate}
+  \item The leading entry in each nonzero row is 1.
+  \item Each leading 1 is the only nonzero entry in its column.
+\end{enumerate}
+
+\item An \definition{echelon matrix} (respectively, \definition{reduced echelon matrix}) is one that is in echelon form (respectively, reduced echelon form).
+
+\item Any nonzero matrix may be \definition{row reduced} (ie, transformed by elementary row operations) into more than one matrix in echelon form, using different sequences of row operations.
+However, the reduced echelon form one obtains from a matrix is unique.
+
+\end{itemize}
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    \begin{theorem}[Uniqueness of the Reduced Echelon Form]
+      Each matrix is row equivalent to one and only one reduced echelon matrix.
+    \end{theorem}
+  }
+}
+
+\begin{itemize}
+
+  \item If a matrix $A$ is row equivalent to an echelon matrix $U$, we can $U$ an \textbf{echelon form of $A$}; if $U$ is in reduced echelon form, we call $U$ the \textbf{reduced echelon form of $A$}.
+
+  \item A \definition{pivot position} in a matrix $A$ is a location in $A$ that corresponds to a leading $1$ in the reduced echelon form of $A$. A \definition{pivot column} is a column of $A$ that contains a pivot position.
+
+  \item \textbf{Using Row Reduction to Solve a Linear System}
+  \begin{enumerate}
+    \item Write the augmented matrix of the system.
+    \item Use the row reduction algorithm to obtain an equivalent augmented matrix in echelon form. Decide whether the system is consistent. If there is no solution, stop; otherwise, go to the next step.
+    \item Continue row reduction to obtain the reduced echelon form.
+    \item Write the system of equations corresponding to the matrix obtained in step 3.
+    \item Rewrite each nonzero equation from step 4 so that its one basic variable is expressed in terms of any free variables appearing in the equation.
+  \end{enumerate}
 
 \end{itemize}
 
