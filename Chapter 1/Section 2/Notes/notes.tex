@@ -80,7 +80,15 @@ However, the reduced echelon form one obtains from a matrix is unique.
     \item Write the system of equations corresponding to the matrix obtained in step 3.
     \item Rewrite each nonzero equation from step 4 so that its one basic variable is expressed in terms of any free variables appearing in the equation.
   \end{enumerate}
-
+  
 \end{itemize}
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    \begin{theorem}[Existence and Uniqueness Theorem]
+      A linear system is consistent if and only if the rightmost column of the augmented matrix is \textit{not} a pivot column; ie, if and only if an echelon form of the augmented matrix has no row of the form $[0 \cdots 0 b]$ with $b$ nonzero.
+    \end{theorem}
+  }
+}
 
 \end{document}

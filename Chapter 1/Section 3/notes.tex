@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multicol}
+
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=15mm, top=20mm, right=15mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\fancyhf{}
+\chead{MAT 341 - Linear Algebra}
+\lfoot{CALU Fall 2021}
+\rfoot{RDK}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Macros
+\newcommand{\definition}[1]{\underline{\textbf{#1}}}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Begin Document
+\begin{document}
+
+\section*{Section 1.3: Vector Equations}
+
+\begin{itemize}
+
+  \item A matrix with only one column is called a \definition{column vector}, or simply a \definition{vector}.
+  
+  \item An example of a vector with two entries, where $w_1$ and $w_2$ are any real numbers, is:
+  \begin{equation*}
+      w = \begin{bmatrix}
+        w_1 \\ w_2
+      \end{bmatrix}
+  \end{equation*}
+
+  \item The set of all vectors with 2 entries is denoted by $\mathbb{R}^2$.
+  
+  \item The $\mathbb{R}$ stands for the real numbers that appear as entries in the vector, and the exponent 2 indicates that each vector contains 2 entries.
+  
+  \item Two vectors in $\mathbb{R}^2$ are \textbf{equal} if and only if their corresponding entries are equal.
+  
+  \item Given two vectors \textbf{u} and \textbf{v} in $\mathbb{R}^2$, their \textbf{sum} is the vector $\textbf{u} + \textbf{v}$ obtained by adding the corresponding entries of \textbf{u} and \textbf{v}.
+  
+  \item Given a vector \textbf{u} and a real number \textbf{c}, the \definition{scalar multiplication} of \textbf{u} by \textbf{c} is the vector \textbf{cu} obtained by multiplying each entry in \textbf{u} by \textbf{c}.
+  
+  \item Consider a rectangular coordinate system in the plane. Because each point in the plane is determined by an ordered pair of numbers, we can identify a geometric point $(a,b)$ with the column vector 
+  $\begin{bmatrix}
+    a \\ b
+  \end{bmatrix}$.
+
+\end{itemize}
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    \begin{theorem}[Existence and Uniqueness Theorem]
+      A linear system is consistent if and only if the rightmost column of the augmented matrix is \textit{not} a pivot column; ie, if and only if an echelon form of the augmented matrix has no row of the form $[0 \cdots 0 b]$ with $b$ nonzero.
+    \end{theorem}
+  }
+}
+
+\end{document}

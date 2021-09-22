@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\usepackage{enumitem}
+
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=15mm, top=20mm, right=15mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\fancyhf{}
+\chead{MAT 341 - Linear Algebra}
+\lfoot{CALU Fall 2021}
+\rfoot{RDK}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Macros
+\newcommand{\definition}[1]{\underline{\textbf{#1}}}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Begin Document
+\begin{document}
+
+\section*{Chapter 1: Theorems \& Defintions}
+
+\vspace{5mm}
+
+\begin{theorem}[Uniqueness of the Reduced Echelon Form]
+  Each matrix is row equivalent to one and only one reduced echelon matrix.
+\end{theorem}
+
+\vspace{5mm}
+
+\begin{theorem}[Existence and Uniqueness Theorem]
+  A linear system is consistent if and only if the rightmost column of the augmented matrix is \textit{not} a pivot column; ie, if and only if an echelon form of the augmented matrix has no row of the form $[0 \cdots 0 b]$ with $b$ nonzero.
+\end{theorem}
+
+\vspace{5mm}
+
+\definition{Spans}: If $v_1, \ldots, v_p$ are in $\mathbb{R}^2$ the the set of all linear combinations of $v_1, \ldots, v_p$ is denoted by \textbf{Span}$\{v_1, \ldots, v_p\}$ and is called the \definition{subset of $\mathbb{R}^2$ spanned by $v_1, \ldots, v_p$}. That is, \textbf{Span}$\{v_1, \ldots, v_p\}$ is the collection of all vectors, with scalars $c_1, \ldots, c_p$, that can be written as
+\begin{equation*}
+  c_1v_1 + c_2v_2 + \cdots + c_pv_p
+\end{equation*}
+
+\vspace{5mm}
+
+\definition{Matrix Equation}: If $A$ is an $m \times n$ matrix, with columns $a_1, \ldots, a_n$, and if $x$ is in $\mathbb{R}^n$, then the product of $A \times x$, by $Ax$ is the linear combination of the columns of $A$ using the corresponding entries in $x$ as weights:
+\begin{equation*}
+  Ax = \begin{bmatrix}
+    a_1 & a_2 & \cdots & a_n
+  \end{bmatrix}
+  \begin{bmatrix}
+    x_1 \\ x_2 \\ \cdots \\ x_n
+  \end{bmatrix}
+  = x_1a_1 + x_2a_2 + \cdots + x_na_n
+\end{equation*}
+
+\vspace{5mm}
+
+\begin{theorem}
+  If $A$ is an $m \times n$ matrix, with columns $a_1, \ldots, a_n$, and if $b$ is in $\mathbb{R}^m$, then the matrix equation $Ax = b$ has the same solution set as the vector equation
+  \begin{equation*}
+    x_1a_1 + x_2a_2 + \cdots + x_na_n
+  \end{equation*}
+  which, in turn, has the same solution set as the system of linear equations whose augmented matrix is 
+  \begin{equation*}
+    Ax = \begin{bmatrix}
+      a_1 & a_2 & \cdots & a_n & b
+    \end{bmatrix}
+  \end{equation*}
+\end{theorem}
+
+\vspace{5mm}
+
+\begin{theorem}
+  Let $A$ be an $m \times n$ matrix. Then the following statements are logically equivalent. That is, for a particular $A$, either they are all true statements or they are all false.
+  \begin{enumerate}[label=\alph*.)]
+    \item For each $b$ in $\mathbb{R}^m$, the equation $Ax = b$ has a solution.
+    \item Each $b$ in $\mathbb{R}^m$ is a linear combination of the columns of $A$.
+    \item The columns of $A$ span $\mathbb{R}^m$.
+    \item $A$ has a pivot position in every row.
+  \end{enumerate}
+\end{theorem}
+
+\vspace{5mm}
+
+\begin{theorem}
+  If $A$ is an $m \times n$ matrix, $u$ and $v$ are vectors in $\mathbb{R}^n$, and $c$ is a scalar, then 
+  \begin{enumerate}[label=\alph*.)]
+    \item $A(u + v) = Au + Av$
+    \item $A(cu) = c(Au)$
+  \end{enumerate}
+\end{theorem}
+
+\pagebreak
+
+\definition{Homogeneous Systems}: A system of linear equations is said to be \textbf{homogeneous} if it can be written in the form $Ax = 0$, where $A$ is an $m \times n$ matrix and $0$ is the zero vector in $\mathbb{R}^m$.
+\begin{itemize}
+  \item Such a system \textit{always} has at least one solution, namely the \textbf{trivial solution}, the zero vector.
+  \item Such a system has a nontrivial solution if and only if the equation has at least one free variable.
+\end{itemize}
+
+\vspace{5mm}
+
+\definition{Linear Independence}: An indexed set of vectors $\{v_1, \ldots, v_p\}$ in $\mathbb{R}^n$ is said to be \textbf{linearly independent} if the vector equation
+\begin{equation*}
+  x_1v_1 + x_2v_2 + \cdots + x_pv_p
+\end{equation*}
+has only the trivial solution. The set $\{v_1, \ldots, v_p\}$ is said to be \textbf{linearly dependent} if there exist weights $\{c_1, \ldots, c_p\}$, not all zero, such that
+\begin{equation*}
+  c_1v_1 + c_2v_2 + \cdots + c_pv_p = 0
+\end{equation*}
+
+\vspace{5mm}
+
+\begin{theorem}[Characterization of Linearly Dependent Sets]
+  An indexed set $S = \{v_1, \ldots, v_p\}$ of two or more vectors is linearly dependent if and only if at least one of the vectors in $S$ is a linear combination of the others.
+\end{theorem}
+
+\vspace{5mm}
+
+\begin{theorem}
+  If a set contains more vectors than there are entries in each vector, then the set is linearly dependent. That is, any set $\{v_1, \ldots, v_p\}$ in $\mathbb{R}^n$ is linearly dependent if $p > n$.
+\end{theorem}
+
+\vspace{5mm}
+
+\begin{theorem}
+  If a set $S = \{v_1, \ldots, v_p\}$ in $\mathbb{R}^n$ contains the zero vector, then the set is linearly dependent.
+\end{theorem}
+
+\end{document}
