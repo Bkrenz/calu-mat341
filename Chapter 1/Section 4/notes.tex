@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=15mm, top=20mm, right=15mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\fancyhf{}
+\chead{MAT 341 - Linear Algebra}
+\lfoot{CALU Fall 2021}
+\rfoot{RDK}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Macros
+\newcommand{\definition}[1]{\underline{\textbf{#1}}}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Begin Document
+\begin{document}
+
+\section*{Section 1.4: The Matrix Equation}
+
+\begin{itemize}
+
+  \item If $A$ is an $m \times n$, with columns $a_1, \ldots, a_n$, and if $x$ is in $\mathbb{R}^n$, then the product of $A$ and $x$, denoted by $Ax$, is the linear combination
+  of the columns of $A$ using the corresponding entries in $x$ as weights; that is:
+  \begin{equation*}
+    Ax = 
+    \begin{bmatrix}
+      a_1 & a_2 & \cdots & a_n
+    \end{bmatrix}
+    \begin{bmatrix}
+      x_1 \\ x_2 \\ \cdots \\ x_n
+    \end{bmatrix}
+    = x_1a_1 + x_2a_2 + \cdots + x_na_n
+  \end{equation*}
+
+  \item $Ax$ is defined only if the number of columns of $A$ equals the number of entries in $x$.
+
+\end{itemize}
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    \begin{theorem}
+      If $A$ is an $m \times n$ matrix, with columns $a_1, \ldots, a_n$, and if $b$ is in $\mathbb{R}^m$, then the matrix equation $Ax = b$ has the same solution set as the vector equation
+      \begin{equation*}
+        x_1a_1 + x_2a_2 + \cdots + x_na_n
+      \end{equation*}
+      which, in turn, has the same solution set as the system of linear equations whose augmented matrix is 
+      \begin{equation*}
+        Ax = \begin{bmatrix}
+          a_1 & a_2 & \ldots & a_n & b
+        \end{bmatrix}
+      \end{equation*}
+    \end{theorem}
+  }
+}
+
+\begin{itemize}
+
+  \item The equation $Ax = b$ has a solution if and only if $b$ is a linear combination of the columns of $A$.
+
+\end{itemize}
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    \begin{theorem}
+      Let $A$ be an $m \times n$ matrix. Then the following statements are logically equivalent. That is, for a particular $A$, either they are all true statements or they are all false.
+      \begin{enumerate}[label=\alph*.)]
+        \item For each $b$ in $\mathbb{R}^m$, the equation $Ax = b$ has a solution.
+        \item Each $b$ in $\mathbb{R}^m$ is a linear combination of the columns of $A$.
+        \item The columns of $A$ span $\mathbb{R}^m$.
+        \item $A$ has a pivot position in every row.
+      \end{enumerate}
+    \end{theorem}
+  }
+}
+
+\begin{itemize}
+
+  \item The matrix with $1$s on the diagonal and $0$s elsewhere is called the \definition{identity matrix} and is denoted by $I$:
+  \begin{equation*}
+    \begin{bmatrix}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1
+    \end{bmatrix}
+  \end{equation*}
+
+\end{itemize}
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    \begin{theorem}
+      If $A$ is an $m \times n$ matrix, $u$ and $v$ are vectors in $\mathbb{R}^n$, and $c$ is a scalar, then 
+      \begin{enumerate}[label=\alph*.)]
+        \item $A(u + v) = Au + Av$
+        \item $A(cu) = c(Au)$
+      \end{enumerate}
+    \end{theorem}
+  }
+}
+
+
+
+\end{document}

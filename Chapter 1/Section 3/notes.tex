@@ -64,14 +64,39 @@
     a \\ b
   \end{bmatrix}$.
 
+  \item We may regard $\mathbb{R}^2$ as the set of all points in the plane
+  
+  \item The vector whose entries are all zero is called the \definition{zero vector} and is denoted by \textbf{0}.
+  
+  \item For all \textbf{u}, \textbf{v}, \textbf{w}, in $\mathbb{R}^2$ and scalars \textit{c} and \textit{d}:
+  \begin{enumerate}
+      \item $u + v = v + u$
+      \item $(u + v) + w = u + (v + w)$
+      \item $u + 0 = 0 + u = u$
+      \item $u + (-u) = 0$
+      \item $c(u + v) = cu + cv$
+      \item $(c+d)u = cu + du$
+      \item $c(du) = (cd)u$
+      \item $1u = u$
+  \end{enumerate}
+
+  \item The vector $y = c_1v_1 + \cdots + c_pv_p$ is called a \definition{linear combination}.
+  
+  \item A vector Equation
+  \begin{equation*}
+      x_1a_1 + \cdots + x_na_n = b
+  \end{equation*}
+  has the same solution set as the linear system whose augmented matrix is
+  \begin{equation*}
+      \begin{bmatrix}
+          a_1 & a_2 & \cdots & a_n & b
+      \end{bmatrix}
+  \end{equation*}
+
+  \item If $v_1, \ldots, v_p$ are in $\mathbb{R}^2$, then the set of all linear combinations of $v_1, \ldots, v_p$ is denoted by
+  $Span\{v_1, \ldots, v_p\}$ and is called the \definition{subset of $\mathbb{R}^2$ spanned by $v_1, \ldots, v_p$}.
+
 \end{itemize}
 
-\noindent\fbox{
-  \parbox{\textwidth}{
-    \begin{theorem}[Existence and Uniqueness Theorem]
-      A linear system is consistent if and only if the rightmost column of the augmented matrix is \textit{not} a pivot column; ie, if and only if an echelon form of the augmented matrix has no row of the form $[0 \cdots 0 b]$ with $b$ nonzero.
-    \end{theorem}
-  }
-}
 
 \end{document}
