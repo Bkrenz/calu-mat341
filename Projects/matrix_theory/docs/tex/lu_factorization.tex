@@ -49,12 +49,48 @@ Using the $LU$ decomposition it's possible to decompose the original matrix equa
 
 We must first solve for $y$ in equation (3). 
 \begin{equation}
-    
+    y = L^{-1}b
 \end{equation}
+
+This requires the inverse of $L$, which is:
+\begin{equation*}
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0 \\
+        -\frac{1}}{2} & 1 & 0 & 0 & 0 \\
+        -1 & 1 & 1 & 0 & 0 \\
+        0 & 1 & -1 & 1 & 0 \\
+        -\frac{1}}{2} & \frac{1}}{2} & -\frac{1}}{2} & 1 & 1 
+    \end{bmatrix}
+\end{equation*}
+
+Plugging in values for equation (4) gives:
+\begin{equation*}
+    y = \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0 \\
+        -\frac{1}}{2} & 1 & 0 & 0 & 0 \\
+        -1 & 1 & 1 & 0 & 0 \\
+        0 & 1 & -1 & 1 & 0 \\
+        -\frac{1}}{2} & \frac{1}}{2} & -\frac{1}}{2} & 1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        100 \\
+        0 \\
+        -50 \\
+        120 \\
+        0
+    \end{bmatrix}
+    =\begin{bmatrix}
+        100 \\
+        -50 \\
+        -150 \\
+        50 \\
+        95 \\
+    \end{bmatrix}
+\end{equation*}
 
 In order to compute for $x$, we rearrange equation (2) into:
 \begin{equation}
-x = U^{-1}y
+    x = U^{-1}y
 \end{equation}
 
 \end{document}
