@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "build-paper",
+			"command": "latexmk",
+			"args": [
+				"-pdf",
+				"-output-directory=out"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\docs\\"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
