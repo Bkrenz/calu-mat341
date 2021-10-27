@@ -1,0 +1,101 @@
+\documentclass[paper.tex]{subfiles}
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Begin Document
+\begin{document}
+
+\section{Cramer's Rule}
+
+The second method used to solve this is the use of Cramer's Rule.
+Let us first recap the original matrix equation.
+\begin{equation*}
+    \begin{bmatrix}
+        2 & 1 & 0 & 0 & 0   \\
+        1 & 1 & -1 & 0 & -1 \\
+        1 & 0 & -1 & 0 & -1 \\
+        0 & -1 & 0 & 1 & 1  \\
+        0 & 1 & 1 & -1 & 1 
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3 \\
+        x_4 \\
+        x_5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        100 \\
+        0 \\
+        -50 \\
+        120 \\
+        0
+    \end{bmatrix}
+\end{equation*}
+
+We must first find the determinant of $A$, as noted below:
+\begin{equation*}
+    \begin{vmatrix}
+        A
+    \end{vmatrix}
+    = \begin{vmatrix}
+        2 & 1 & 0 & 0 & 0   \\
+        1 & 1 & -1 & 0 & -1 \\
+        1 & 0 & -1 & 0 & -1 \\
+        0 & -1 & 0 & 1 & 1  \\
+        0 & 1 & 1 & -1 & 1 
+    \end{vmatrix}
+    = -2
+\end{equation*}
+
+Following Cramer's rule then leads to finding the determinant of each $A_i(b)$, which indicates the matrix formed when replacing the $i^{th}$ column of $A$ with $b$.
+\begin{align*}
+    &\begin{vmatrix}A_1\end{vmatrix} = \begin{vmatrix}
+        100 & 1 & 0 & 0 & 0   \\
+        0 & 1 & -1 & 0 & -1 \\
+        -50 & 0 & -1 & 0 & -1 \\
+        120 & -1 & 0 & 1 & 1  \\
+        0 & 1 & 1 & -1 & 1
+    &\end{vmatrix} = -50\\
+    &\begin{vmatrix}A_2\end{vmatrix} = -100 \\ 
+    &\begin{vmatrix}A_3\end{vmatrix} = -60 \\ 
+    &\begin{vmatrix}A_4\end{vmatrix} = -250 \\
+    &\begin{vmatrix}A_5\end{vmatrix} = -90 \\
+\end{align*}
+
+Then for each determinant, division by the original determinant provides the solution to that particular $x$ value.
+\begin{equation*}
+    \frac{1}{-2} \begin{bmatrix}
+        -50 \\
+        -100 \\
+        -60 \\
+        -250 \\
+        -90
+    \end{bmatrix}
+\end{equation*}
+
+The result is then the answer:
+\begin{equation*}
+    x = \begin{bmatrix}
+        25 \\
+        50 \\ 
+        30 \\ 
+        125 \\
+        45
+    \end{bmatrix}
+\end{equation*}
+
+This answer is identical to the answer obtained through $LU$ Factorization.
+
+\end{document}

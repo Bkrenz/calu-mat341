@@ -20,9 +20,8 @@
 The first method to solve this system of equations will be $LU$ Factorization.
 This involves decomposing the coefficient matrix $A$ into two factors, $L$ and $U$, resulting in an equation of the form $A = LU$.
 Doing so gives:
-\begin{center}
 \begin{equation*}
-    A = \begin{bmatrix}
+    \begin{bmatrix}
         1 & 0 & 0 & 0 & 0 \\
         \frac{1}{2} & 1 & 0 & 0 & 0 \\
         \frac{1}{2} & -1 & 1 & 0 & 0 \\
@@ -37,7 +36,6 @@ Doing so gives:
         0 & 0 & 0 & 0 & 1 
     \end{bmatrix}
 \end{equation*}
-\end{center}
 
 Using the $LU$ decomposition it's possible to decompose the original matrix equation into two separate equations:
 \begin{equation}
@@ -54,12 +52,12 @@ We must first solve for $y$ in equation (3).
 
 This requires the inverse of $L$, which is:
 \begin{equation*}
-    \begin{bmatrix}
+    L^{-1}=\begin{bmatrix}
         1 & 0 & 0 & 0 & 0 \\
-        -\frac{1}}{2} & 1 & 0 & 0 & 0 \\
+        -\frac{1}{2} & 1 & 0 & 0 & 0 \\
         -1 & 1 & 1 & 0 & 0 \\
         0 & 1 & -1 & 1 & 0 \\
-        -\frac{1}}{2} & \frac{1}}{2} & -\frac{1}}{2} & 1 & 1 
+        -\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} & 1 & 1 
     \end{bmatrix}
 \end{equation*}
 
@@ -67,10 +65,10 @@ Plugging in values for equation (4) gives:
 \begin{equation*}
     y = \begin{bmatrix}
         1 & 0 & 0 & 0 & 0 \\
-        -\frac{1}}{2} & 1 & 0 & 0 & 0 \\
+        -\frac{1}{2} & 1 & 0 & 0 & 0 \\
         -1 & 1 & 1 & 0 & 0 \\
         0 & 1 & -1 & 1 & 0 \\
-        -\frac{1}}{2} & \frac{1}}{2} & -\frac{1}}{2} & 1 & 1
+        -\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} & 1 & 1
     \end{bmatrix}
     \begin{bmatrix}
         100 \\
@@ -83,8 +81,8 @@ Plugging in values for equation (4) gives:
         100 \\
         -50 \\
         -150 \\
-        50 \\
-        95 \\
+        170 \\
+        45 
     \end{bmatrix}
 \end{equation*}
 
@@ -92,5 +90,27 @@ In order to compute for $x$, we rearrange equation (2) into:
 \begin{equation}
     x = U^{-1}y
 \end{equation}
+
+Calculating the inverse of $U$ gives:
+\begin{equation*}
+    U^{-1}=\begin{bmatrix}
+        \frac{1}{2} & -1 & \frac{1}{2} & 0 & 0 \\
+        0 & 2 & -1 & 0 & 0 \\
+        0 & 0 & -\frac{1}{2} & 0 & -1 \\
+        0 & 0 & 0 & 1 & -1 \\
+        0 & 0 & 0 & 0 & 1 
+    \end{bmatrix}
+\end{equation*}
+
+As given in equation (5), the product of the values of $U^{-1}$ and $y$ gives the solution $x$:
+\begin{equation*}
+    x = \begin{bmatrix}
+        25 \\
+        50 \\ 
+        30 \\ 
+        125 \\
+        45
+    \end{bmatrix}
+\end{equation*}
 
 \end{document}

@@ -24,16 +24,26 @@ The input and output must be equivalent for each node.
 Solving for variables for each node gives us a system of linear equations.
 
 \begin{center}
-\begin{tabular}{c | l | l | l}
+\begin{tabular}{c | l | l}
 
-    \textbf{Node} & \textbf{Input} & \textbf{Output} & \textbf{Equation} \\ \hline
+    \textbf{Node} & \textbf{Input} & \textbf{Output} \\ \hline
 
-    A & 100                         & $2x_1 + x_2$ \hspace{8mm} & $2x_1 + x_2 = 100$             \\
-    B & $x_1 + x_2$                 & $x_3 + x_5$  & $x_1 + x_2 - x_3 - x_5 = 0$    \\
-    C & $50 + x_1$                  & $x_3 + x_5$  & $x_1 - x_3 - x_5 = -50$        \\
-    D & $x_4 + x_5$                 & $x_2 + 120$  & $-x_2 + x_4 + x_5 = 120$       \\
-    E & $x_2 + x_3 + x_5$ \hspace{8mm} & $x_4$        & $x_2 + x_3 - x_4 + x_5 = 0$                         
+    A & 100                         & $2x_1 + x_2$ \\
+    B & $x_1 + x_2$                 & $x_3 + x_5$  \\
+    C & $50 + x_1$                  & $x_3 + x_5$  \\
+    D & $x_4 + x_5$                 & $x_2 + 120$  \\
+    E & $x_2 + x_3 + x_5$ \hspace{8mm} & $x_4$                         
     
+\end{tabular}
+
+
+\begin{tabular}{c | l}
+    \textbf{Node} & \textbf{Equations} \\ \hline
+    A & $2x_1 + x_2 = 100$ \\
+    B & $x_1 + x_2 - x_3 - x_5 = 0$    \\
+    C & $x_1 - x_3 - x_5 = -50$        \\
+    D & $-x_2 + x_4 + x_5 = 120$       \\
+    E & $x_2 + x_3 - x_4 + x_5 = 0$
 \end{tabular}
 \end{center}
 

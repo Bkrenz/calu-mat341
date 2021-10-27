@@ -1,0 +1,31 @@
+\documentclass[paper.tex]{subfiles}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Begin Document
+\begin{document}
+
+\begin{figure}[h]
+\begin{tabular}{p{.1\textwidth} p{.22\textwidth} p{.1\textwidth} p{.2\textwidth} p{.25\textwidth}}
+    \textbf{Network Link} & \textbf{Recommended Capacity (Mbps)} & \textbf{Solution} & \textbf{Recommendation} & \textbf{Explanation} \\ \hline
+    $x_1$ & 60 & 25 & No Change & The link can handle the traffic. \\ \hline
+    $x_2$ & 50 & 50 & No Change & The link can handle the traffic. \\ \hline
+    $x_3$ & 100 & 30 & No Change & The link can handle the traffic. \\ \hline
+    $x_4$ & 100 & 125 & Upgrade & The traffic is higher than the link can handle. \\ \hline
+    $x_5$ & 50 & 45 & No Change & The link can handle the traffic.
+\end{tabular}
+\caption{Network Link Recommendations}
+\end{figure}
+
+\end{document}
